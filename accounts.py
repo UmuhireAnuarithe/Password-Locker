@@ -2,7 +2,7 @@ class  Accounts :
     '''
     This a class that generates new instances of accounts .
     '''
-    Accounts_list = []
+    Account_list = []
     def __init__( self,names,usernname,password,phone_number,email) :
         
         '''
@@ -24,3 +24,12 @@ class  Accounts :
         self.password = password
         self.phone_number  = phone_number
         self.email =  email
+    
+
+    def save_account(self):
+
+        '''
+        save_account method saves contact objects into contact_list
+        '''
+
+        Accounts.Account_list.append(self)

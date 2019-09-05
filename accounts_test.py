@@ -1,7 +1,7 @@
 import unittest
 from accounts import Accounts
 
-class TestContact(unittest.TestCase):
+class TestAccount(unittest.TestCase):
 
     '''
     Test class that defines test cases for the contact class behaviours.
@@ -28,7 +28,21 @@ class TestContact(unittest.TestCase):
         self.assertEqual(self.new_account.email,"ak@gmail.com")
     
 
-    
+    def test_save_account(self):
+        '''
+        test_save_account test case to test if the account object is saved into
+         the account list
+        '''
+        self.new_account.save_account() 
+        self.assertEqual(len(Accounts.Account_list),1)
 
+    # def test_login_account(self) :
+    #     '''
+    #     test_login_account test case test if the username and password loggedi are correct .
+    #     '''
+
+    #     self.assertEqual(self.new_account.username)
+        
+        
 if __name__ == '__main__':
     unittest.main()
