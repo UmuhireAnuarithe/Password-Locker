@@ -56,3 +56,20 @@ class  Accounts :
         for account in cls.Account_list:
             if account.username == username and account.password == password :
                 return account
+
+
+    @classmethod
+    def account_exist(cls,username,password):
+        '''
+        Method that checks if a account exists from the account list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for account in cls.Account_list:
+             if account.username == username and account.password == password :
+                return account
+
+
+        return True
