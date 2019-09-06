@@ -37,7 +37,15 @@ def store_credentials(self):
         store_credential method saves contact objects into credential list
         '''
 
-        Credentials.Credentials_list.append(self) 
+        Credentials.Credentials_list.append(self)
+
+def display_credentials(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.Credentials_list
+
+ 
      
 
 def main():
@@ -47,7 +55,7 @@ def main():
         print('\n')
 
 while True:
-            print("Use these short codes : ca - create a new account, 44 - create credential ,dc - display credentials,li - login, ex -exit your accounnt ")
+            print("Use these short codes : ca - create a new account, 44 - create credential ,dc - display credentials,log- login, ex -exit your accounnt ")
 
             short_code = input().lower()
 
@@ -97,6 +105,21 @@ while True:
                 print(f"New {appName} credential well created ")
 
                 # print("Your credentials gererated properly")
+
+            elif short_code == 'dc':
+
+                            if display_credentials():
+                                    print("Here is a list of all your credentilas")
+                                    print('\n')
+
+                                    for credential in display_credentials():
+                                            print(f"{credential.appName} {credential.username} {credential.password}")
+
+                                    print('\n')
+                            else:
+                                    print('\n')
+                                    print("You dont seem to have any account saved yet")
+                                    print('\n')
 
 
 if __name__ == '__main__':
