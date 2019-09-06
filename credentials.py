@@ -1,6 +1,6 @@
 class  Credentials :
     '''
-    This a class that generates new instances of accounts .
+    This a class that generates new instances of credentials .
     '''
     Credentials_list = []
     def __init__( self,appName,usernname,password) :
@@ -20,7 +20,7 @@ class  Credentials :
         self.username = usernname
         self.password = password
        
-    def store_credential(self):
+    def store_credentials(self):
 
         '''
         store_credential method saves contact objects into credential list
@@ -35,4 +35,14 @@ class  Credentials :
         delete_credenntial method deletes a saved credential from the credential_list
         '''
 
-        Credentials.Credentials_list.remove(self)
+        Credentials.Credentials_list.remove(self)   
+     
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.Credentials_list
+
+

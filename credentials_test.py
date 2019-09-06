@@ -32,12 +32,12 @@ class TestCredentials(unittest.TestCase):
             # Credentials_list = []
 
 
-    def test_store_credential(self):
+    def test_store_credentials(self):
         '''
         test_store_credential test case to test if the credential object is saved into
          the credential list
         '''
-        self.new_credential.store_credential() 
+        self.new_credential.store_credentials() 
         self.assertEqual(len(Credentials.Credentials_list),2)
 
  
@@ -46,9 +46,9 @@ class TestCredentials(unittest.TestCase):
             test_store_multiple_contact to check if we can save multiple credential
             objects to our credential_list
             '''
-            self.new_credential.store_credential()
+            self.new_credential.store_credentials()
             test_credential = Credentials("Twitter","andrew","123") 
-            test_credential.store_credential()
+            test_credential.store_credentials()
             self.assertEqual(len(Credentials.Credentials_list),4)
 
 
@@ -56,13 +56,22 @@ class TestCredentials(unittest.TestCase):
             '''
             test_delete_credentialsto test if we can remove a credentialst from our credentials list
             '''
-            self.new_credential.store_credential()
+            self.new_credential.store_credentials()
             test_credential = Credentials("Twitter","andrew","123")
-            test_credential.store_credential()
+            test_credential.store_credentials()
 
             self.new_credential.delete_credential()
             self.assertEqual(len(Credentials.Credentials_list),1)
+   
 
+
+        
+    def test_display_all_credential(self):
+           '''
+           method that returns a list of all credential saved
+           '''
+
+           self.assertEqual(Credentials.display_credentials(),Credentials.Credentials_list)
 
 
 if __name__ == '__main__':
