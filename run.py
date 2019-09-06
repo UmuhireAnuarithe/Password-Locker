@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 from accounts import Accounts
-# from credentials import Credentials
+from credentials import Credentials
 
 
 def create_account(fullname, username, password, phone_number, email):
@@ -16,19 +16,29 @@ def save_accounts(account):
         '''
         account.save_account()
 
-def display_accounts():
-    '''
-    Function that returns all the saved accounts
-    '''
-    Accounts.display_accounts()
 
-
-def find_account(number):
+def login_account(number):
         '''
         Function that finds a account by username and password then returns the account .
         '''
         return Accounts.login_by_user("username", "password")
 
+
+def create_credentials(appName,username,password):
+    '''
+    Function to create a new contact
+    '''
+    new_credential = Credentials(f"twitter", "akofi", "12a")
+    return new_credential
+
+def store_credentials(self):
+
+        '''
+        store_credential method saves contact objects into credential list
+        '''
+
+        Credentials.Credentials_list.append(self) 
+     
 
 def main():
         print("Hello Welcome to password locker. What is your name?")
@@ -37,11 +47,12 @@ def main():
         print('\n')
 
 while True:
-            print("Use these short codes : ca - create a new account, da - dispay account ,dc - display credentials,li - login, ex -exit your accounnt ")
+            print("Use these short codes : ca - create a new account, 44 - create credential ,dc - display credentials,li - login, ex -exit your accounnt ")
 
             short_code = input().lower()
 
             if short_code == 'ca':
+
                 print("New account")
                 print("*"*10)
 
@@ -61,43 +72,31 @@ while True:
                 email = input()
 
                 # create and save new account.
-                save_accounts(create_account(fullname, username,
-                                            password, phone_number, email))
+                save_accounts(create_account(fullname, username, password, phone_number, email))
                 print('\n')
-                print(f"New Account {fullname} created")
+                print(f"New Account {fullname} successfully created")
                 print('\n')
 
-            elif short_code == 'li':
+ ###########*********************************************#################### credentials
+            if short_code == '44':
 
-                print("Enter your Username")
+                print("New credential")
+                print("*"*10)
 
-                search_username = input()
-                print("Enter your password")
-                search_password = input()
-                if check_existing_accounts(search_username) and ckeck_existing_accounts(search_password):
-                    search_username == find_account(search_username) and search_password == find_account(search_password)
-                    print(f"{search_account.username} SUccessfully logrd in ")
-                    print(f"")
+                print(" App name....")
+                appName = input()
 
-                        # print(f"Phone number.......{search_contact.phone_number}")
-                        # print(f"Email address.......{search_contact.email}")
-                else:
-                        print("That account does not exist")
+                print("User name ....")
+                username = input()
 
+                print(" Password ....")
+                password = input()
 
-            elif short_code == 'da':
+                store_credentials(create_credentials(appName, username, password))
+                print('\n')
+                print(f"New {appName} credential well created ")
 
-                if display_accounts():
-                    print("Here is a list of all your account created")
-                    print('\n')
-
-                    for account in display_accounts():
-                        print(f"{account.fullname} {account.username} .....{account.phone_number}{account.password} {account.email}")
-
-                        print('\n')
-                else:
-                    print('\n')
-                    print("You don't have any account created yet")
+                # print("Your credentials gererated properly")
 
 
 if __name__ == '__main__':
