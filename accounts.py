@@ -33,6 +33,13 @@ class  Accounts :
         '''
 
         Accounts.Account_list.append(self)
+
+    @classmethod
+    def display_account(cls):
+        '''
+        method that returns the account list
+        '''
+        return cls.Account_list
     
 
     @classmethod

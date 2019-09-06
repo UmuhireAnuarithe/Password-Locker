@@ -37,6 +37,14 @@ class TestAccount(unittest.TestCase):
         self.new_account.save_account()
         self.assertEqual(len(Accounts.Account_list), 3)
 
+    def test_display_all_accounts(self):
+        '''
+        method that returns a list of all account saved
+        '''
+
+        self.assertEqual(Accounts.display_account(),Accounts.Account_list)
+
+
     def test_login_by_user(self):
         '''
         test to check if we can find a contact by phone number and display information
