@@ -3,7 +3,7 @@ class  Accounts :
     This a class that generates new instances of accounts .
     '''
     Account_list = []
-    def __init__( self,names,usernname,password,phone_number,email) :
+    def __init__( self,fullname,usernname,password,phone_number,email) :
         
         '''
         __init__  methods that  help us to create  properties of our obbjects 
@@ -19,7 +19,7 @@ class  Accounts :
         '''
 
 
-        self.names = names
+        self.names = fullname
         self.username = usernname
         self.password = password
         self.phone_number  = phone_number
